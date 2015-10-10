@@ -1,0 +1,32 @@
+<template name="profile">
+  <div class="template-profile">
+    <div class="page-header">
+      <h1>Profile</h1>
+    </div>
+      {{#autoForm collection=usersCollection doc=currentUser id="editUserProfile" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
+      <fieldset>
+        {{> afQuickField name="username"}}
+        {{> afQuickField name="emails.0.address"}}
+<!--
+        {{> afQuickField name="profile.firstName"}}
+        {{> afQuickField name="profile.lastName"}}
+        {{> afQuickField name="profile.gender" options="allowed"}}
+-->
+        {{> afQuickField name="profile.bio" rows=2}}
+        {{> afQuickField name="keywords" multiple="multiple" options=s2Opts}}
+
+        <div>
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="reset" class="btn btn-default">Reset</button>
+        </div>
+      </fieldset>
+      {{/autoForm}}
+ 
+    <ul class="list-group">
+      {{#each teams}}
+        <li class="list-group-item">{{ name }} </li>
+      {{/each}}
+    </ul>
+
+  </div>
+</template>
