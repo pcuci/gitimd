@@ -5,15 +5,21 @@
     </div>
       {{#autoForm collection=usersCollection doc=currentUser id="editUserProfile" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
       <fieldset>
-        {{> afQuickField name="username"}}
-        {{> afQuickField name="emails.0.address"}}
+	<div class="row">
+	  <div class="col-lg-6">
+            {{> afQuickField name="username"}}
+	  </div>
+	  <div class="col-lg-6">
+            {{> afQuickField name="emails.0.address" label="E-mail"}}
+	  </div>
+	</div>
 <!--
         {{> afQuickField name="profile.firstName"}}
         {{> afQuickField name="profile.lastName"}}
         {{> afQuickField name="profile.gender" options="allowed"}}
 -->
         {{> afQuickField name="profile.bio" rows=2}}
-        {{> afQuickField name="keywords" multiple="multiple" options=s2Opts}}
+        {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
 
         <div>
           <button type="submit" class="btn btn-primary">Save</button>
@@ -23,9 +29,22 @@
       {{/autoForm}}
  
     <ul class="list-group">
-      {{#each teams}}
-        <li class="list-group-item">{{ name }} </li>
-      {{/each}}
+      <br>
+      <br>
+      <div class="row">
+	<div class="col-lg-8 text-center">
+	  {{#each teams}}
+	  <li class="list-group-item"><a href="/teams/{{_id}}">{{ name }}</a> </li>
+	  {{else}}
+	  <h4>No teams submitted yet.</h4>
+	  {{/each}}
+	</div>
+	<div class="col-lg-4 text-right">
+	  <input type="text" class="newTeamName"><br>
+	  <span class="text-danger err"></span><br>
+          <button class="btn btn-success addTeam">+ CREATE OWN TEAM</button>
+	</div>
+      </div>
     </ul>
 
   </div>

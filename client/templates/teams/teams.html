@@ -1,0 +1,29 @@
+<template name="teams">
+  <div class="template-profile">
+    <div class="page-header">
+      <h1>Team</h1>
+    </div>
+      {{#autoForm collection="Teams" doc=currentTeam id="editTeam" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
+      <fieldset>
+        {{> afQuickField name="name"}}
+        {{> afQuickField name="descripton" rows=2}}
+        {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
+        <div>
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="reset" class="btn btn-default">Reset</button>
+        </div>
+      </fieldset>
+      {{/autoForm}}
+ 
+    <ul class="list-group">
+      <br>
+      <br>
+      {{#each users}}
+      <li class="list-group-item">{{ username }} </li>
+      {{else}}
+      <h4>No participants yet.</h4>
+      {{/each}}
+    </ul>
+
+  </div>
+</template>

@@ -7,3 +7,9 @@ Meteor.publish(null, function () {
                                                            }});
     };
 });
+
+Meteor.publish('usersall', function () {
+    if (this.userId) {
+        return Meteor.users.find({},{fields:{profile:1,username:1, keywords:1}});
+    };
+});
