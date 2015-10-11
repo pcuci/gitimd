@@ -32,7 +32,10 @@ Template.teams.helpers({
 		arr.push(obj);
             });
 	return arr;
-    }    
+    },
+    memberOf: function () {
+	return Teams.find({'members.id':this._id});
+    }
 });
  
 Template.teams.events({

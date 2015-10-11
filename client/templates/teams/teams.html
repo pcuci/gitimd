@@ -19,7 +19,30 @@
       <br>
       <br>
       {{#each users}}
-      <li class="list-group-item">{{ username }} </li>
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
+              </div>
+              <div class="panel-body text-left">
+                {{ profile.bio }}
+              </div>
+              <div class="panel-footer">
+                <b>Teams</b>:&nbsp;
+                {{#each memberOf}}
+                <span class="label label-primary">{{name}}</span>
+                {{else}}
+                Not member of any team
+                {{/each}}
+                <br><b>Keywords</b>:&nbsp;
+                {{#each keywords}}
+                <span class="label label-primary">{{this}}</span>
+                {{else}}
+                No keywords
+                {{/each}}
+              </div>
+            </div>
+          </div>
       {{else}}
       <h4>No participants yet.</h4>
       {{/each}}

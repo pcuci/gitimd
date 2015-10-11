@@ -21,11 +21,11 @@ AutoForm.addHooks(['editUserProfile'],{
 Template.profile.helpers({
     usersCollection: Meteor.users,
     currentUser: function () {
-	return Meteor.user();
+	return Meteor.users.findOne({username:Router.current().params.username});
     },
     s2Opts: function () {
         var arr=[];
-        var res=Meteor.user();
+        var res=Meteor.users.findOne({username:Router.current().params.username});
         if (res && res.keywords)
             res.keywords.forEach(function (el) {
 		var obj={label: el, value: el};
@@ -39,6 +39,9 @@ Template.profile.helpers({
     watchersCount: function () {
 	return _.filter(Teams.findOne().members, function (el) {if (el.status==='applied') return true;}).length;
     },
+    ifOwner: function () {
+	return Meteor.user().username === Router.current().params.username;
+    }
 });
  
 Template.profile.events({
