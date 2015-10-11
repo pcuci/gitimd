@@ -1,7 +1,7 @@
 Template.profile.rendered = function() {
     $('[name=keywords]').select2({
         tags: true,
-        tokenSeparators: [",", " "],
+        tokenSeparators: [",", " "]
     });
 };
 Template.profile.onDestroyed(function(){
@@ -12,7 +12,7 @@ AutoForm.addHooks(['editUserProfile'],{
         Meteor.setTimeout(function (){
             $('[name=keywords]').select2({
                 tags: true,
-                tokenSeparators: [",", " "],
+                tokenSeparators: [",", " "]
             });
         },500);
     }
