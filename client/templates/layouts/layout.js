@@ -3,6 +3,6 @@ Template._footer.events({
         AntiModals.overlay('profileModal');
     },
     'click #createBtn': function () {
-        AntiModals.overlay('profileModal');
+        AntiModals.overlay('teamsModal');
     }
 });
