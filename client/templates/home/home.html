@@ -29,28 +29,41 @@
 
 <template name="locateEvent">
   <div class="row">
-    {{#each teams}}
-    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"><a href="/teams/{{_id}}"><b>{{ name }}</b></a></h3>
-        </div>
-        <div class="panel-body text-left">
-          {{ description }}
-        </div>
-        <div class="panel-footer">
-          <b>Members</b>:&nbsp;<span class="badge">{{membersCount}}</span>&nbsp;<b>Watchers</b>:&nbsp;<span class="badge">{{watchersCount}}</span>
-          <br><b>Keywords</b>:&nbsp;
-          {{#each keywords}}
-          <span class="label label-primary">{{this}}</span>
-          {{else}}
-          No keywords
-          {{/each}}
-        </div>
+      <!-- Swiper -->
+      <div class="swiper-container">
+          <div class="swiper-wrapper">
+              {{#each teams}}
+                      <div class="swiper-slide">
+                        {{>teamCard}}
+                      </div>
+              {{else}}
+                  <h4 class="text-center">No teams submitted yet.</h4>
+              {{/each}}
+          </div>
+          <!-- Add Pagination -->
+          <!--<div class="swiper-pagination"></div>-->
       </div>
-    </div>
-    {{else}}
-    <h4 class="text-center">No teams submitted yet.</h4>
-    {{/each}}
   </div>
+</template>
+
+<template name="teamCard">
+    <div class="col-xs-12 text-center team-panel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a href="/teams/{{_id}}"><b>{{ name }}</b></a></h3>
+            </div>
+            <div class="panel-body text-left">
+                {{ description }}
+            </div>
+            <div class="panel-footer">
+                <b>Members</b>:&nbsp;<span class="badge">{{membersCount}}</span>&nbsp;<b>Watchers</b>:&nbsp;<span class="badge">{{watchersCount}}</span>
+                <br><b>Keywords</b>:&nbsp;
+                {{#each keywords}}
+                    <span class="label label-primary">{{this}}</span>
+                {{else}}
+                    No keywords
+                {{/each}}
+            </div>
+        </div>
+    </div>
 </template>

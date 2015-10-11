@@ -17,4 +17,18 @@ Template.locateEvent.helpers({
 
 Template.locateEvent.rendered=function (){
     Meteor.subscribe('teams');
+    var teams = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflow: {
+            rotate: 20,
+            stretch: 0,
+            depth: 50,
+            modifier: 1,
+            slideShadows : false
+        }
+    });
 };
