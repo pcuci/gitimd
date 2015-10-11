@@ -43,12 +43,6 @@ Template.profile.helpers({
             });
 	return arr;
     },
-    membersCount: function () {
-	return _.filter(Teams.findOne().members, function (el) {if (el.status!='applied') return true;}).length;
-    },
-    watchersCount: function () {
-	return _.filter(Teams.findOne().members, function (el) {if (el.status==='applied') return true;}).length;
-    },
     ifOwner: function () {
 	if (Router.current().params.username)
 	    return Meteor.user().username === Router.current().params.username;
