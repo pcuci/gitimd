@@ -1,31 +1,28 @@
 <template name="home">
 {{#unless currentUser}}
-    {{>landingPage}}
-  {{else}}
-    {{>locateEvent}}
+  {{>landingPage}}
+{{else}}
+  {{>locateEvent}}
 {{/unless}}
 </template>
 
 <template name="landingPage">
-    <div class="template-home">
-        <div class="col col-xs-12" id="landingIntro">
-            <div class="well text-center">
-                Try Giti.md to find team mate, its fun and easy to use <br/>
-                <em><img src="/mascot.png" alt="mascot" height="35"/> Tchou Tchou </em>
-            </div>
-        </div>
-
-        <div class="row text-center">
-            <div class="col col-xs-6">
-                <a href="{{ pathFor 'atSignIn' }}" class="btn btn-block btn-default navbar-btn">Sign in</a>
-            </div>
-            <div class="col col-xs-6">
-                <a href="{{ pathFor 'atSignUp' }}" class="btn btn-block btn-primary navbar-btn">Register</a>
-            </div>
-        </div>
+  <div class="template-home">
+    <div class="col col-xs-12" id="landingIntro">
+      <div class="well text-center">
+        <p>Try Giti.md app and <b>get teamed up</b>!</p>
+        <p><em><img src="/mascot.png" alt="mascot" height="35"/> Tchou tchou!</em></p>
+        <p>Find people, join cool projects.</p>
+      </div>
     </div>
-</template>
 
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+      <div class="container">
+        <a href="{{ pathFor 'atSignIn' }}" class="btn btn-block btn-default navbar-btn sign-in">Sign in</a>
+      </div>
+    </nav>
+  </div>
+</template>
 
 <template name="locateEvent">
   <div class="row">
