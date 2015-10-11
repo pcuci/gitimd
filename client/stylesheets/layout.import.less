@@ -15,12 +15,15 @@ body{
 //header
 .navbar{
   min-height: 3.5rem;
+  margin-bottom: 0;
 }
 .page-header{
   margin-top: 0;
 }
 .navbar-default{
-  background-color: transparent;
+   .nav-top{
+     background-color: #84B5DA;
+   }
   .mini-logo{
     margin: 0;
     margin-left: -1rem;
@@ -73,21 +76,37 @@ body{
   background-size: cover;
   width: 80vw;
   .panel{
-    height: 85%;
+    border: 0;
+    height: 95%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     .img-rounded{
       //width: 85%;
     }
-    .panel-title{
-      color: @brand-primary;
+   .panel-heading{
+     padding-top: 15px;
+     background-color: #1e5a87;
+     .panel-title{
+       color: white;
+     }
+   }
+    .panel-body{
+      padding-bottom: 0;
+
     }
     .team-description{
-      padding: 1rem 5px 5px 1rem;
-      background-color:fade(@brand-primary,30%);
-      height: 8rem;
+      padding: 15px;
+      background-color:#DDEFF9;
+      color: #1D3E56;
+      height: 10rem;
       overflow: hidden;
+      text-align: left;
     }
     .panel-footer{
+      .row-action{
+
+        margin-bottom: 1.5rem;
+      }
+      background-color: white;
       hr{
         margin: 1rem;
         height: 3px;
@@ -97,6 +116,10 @@ body{
       text-align: left;
       b{
         text-transform: uppercase;
+      }
+      .keywords{
+        //background-color: #f5f5f5 ;
+        padding-top: 3rem;
       }
     }
 
@@ -108,6 +131,7 @@ body{
       height: 1.5rem;
       margin-top: 0.5rem;
       background-color: #CFCFCF;
+      margin-bottom: 10px;
       .progress-bar{
         line-height: 15px;
       }
@@ -119,6 +143,7 @@ body{
         margin-left: -5px;
       }
       .fa-subway{
+        margin-top: 3px;
         font-size: 2rem;
         z-index: 10;
       }

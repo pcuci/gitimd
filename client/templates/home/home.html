@@ -49,7 +49,11 @@
 <template name="teamCard">
     <div class="col-xs-12 text-center team-panel">
         <div class="panel panel-default">
-            <div class="row teamVisualInfo">
+
+            <div class="panel-heading">
+                <h3 class="panel-title"><a href="/teams/{{_id}}"><b>{{ name }}</b></a></h3>
+            </div>
+            <div class="teamVisualInfo">
                 <div class="col col-xs-6">
                    <span class="train pull-left">
                         <i class="fa fa-subway"></i>
@@ -66,24 +70,36 @@
                     </div>
                 </div>
             </div>
-            <div class="panel-heading">
-                <h3 class="panel-title"><a href="/teams/{{_id}}"><b>{{ name }}</b></a></h3>
-            </div>
             <div class="panel-body text-left">
 
                 <div class="row text-center team-description">
                         {{ description }}
+
                 </div>
 
+
             </div>
+
             <div class="panel-footer">
+                <div class="row row-action">
+                    <div class="col col-xs-6">
+                        <button class="btn btn-block btn-primary">
+                            Next
+                        </button>
+                    </div>
+                    <div class="col col-xs-6">
+                        <button class="btn btn-block btn-success">
+                            Apply
+                        </button>
+                    </div>
+                </div>
 
               <div class="row">
 
-                  <div class="col col-xs-6">
+                  <div class="col col-xs-4">
                       <img src="http://lorempixel.com/100/100/city" class="img-rounded" height="60" />
                   </div>
-                  <div class="col col-xs-6">
+                  <div class="col col-xs-8">
 
                       <b>Members</b>:&nbsp;<span class="badge">{{membersCount}}</span>
                       <hr/>
@@ -92,8 +108,8 @@
                   </div>
                   <hr/>
               </div>
-               <div class="col-xs-12 text-center">
-                   <br/>
+               <div class="col-xs-12 text-center keywords">
+
                    <b>Keywords</b><br/>
                    {{#each keywords}}
                        <span class="label label-primary">{{this}}</span>
