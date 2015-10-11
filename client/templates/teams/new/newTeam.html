@@ -1,0 +1,31 @@
+<template name="newTeam">
+  <div class="template-profile">
+    {{#if currentUser}}
+      <div class="row">
+        <div class="col-xs-8">
+          {{#autoForm collection="Teams" id="newTeam" type="insert"}}
+            <fieldset>
+              {{> afQuickField name="name"}}
+              {{> afQuickField name="description" rows=2}}
+              {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
+              <div>
+                <button type="submit" class="btn btn-primary">Create Team</button>
+                <button type="reset" class="btn btn-default">Reset</button>
+              </div>
+            </fieldset>
+          {{/autoForm}}
+        </div>
+        <div class="col-xs-4">
+          <img src="http://lorempixel.com/100/100/city" class="img-rounded"><br/>
+          <button class="btn btn-success">Add avatar</button>
+        </div>
+      </div>
+    {{else}}
+      <div class="row">
+        <div class="col-xs-12">
+          <p>Need to log in</p>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</template>
