@@ -24,25 +24,40 @@
         </div>
       </fieldset>
       {{/autoForm}}
-
-    <ul class="list-group">
       <br>
       <br>
       <div class="row">
-	<div class="col-lg-8 text-center">
+	<div class="col-lg-9 text-center">
 	  {{#each teams}}
-	  <li class="list-group-item"><a href="/teams/{{_id}}">{{ name }}</a> </li>
+	  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+		<h3 class="panel-title"><a href="/teams/{{_id}}"><b>{{ name }}</b></a></h3>
+	      </div>
+	      <div class="panel-body text-left">
+		{{ description }}
+	      </div>
+	      <div class="panel-footer">
+		<b>Members</b>:&nbsp;<span class="badge">{{membersCount}}</span>&nbsp;<b>Watchers</b>:&nbsp;<span class="badge">{{watchersCount}}</span>
+		<br><b>Keywords</b>:&nbsp;
+		{{#each keywords}}
+		<span class="label label-primary">{{this}}</span>
+		{{else}}
+		No keywords
+		{{/each}}
+	      </div>
+	    </div>
+	  </div>
 	  {{else}}
 	  <h4>No teams submitted yet.</h4>
 	  {{/each}}
 	</div>
-	<div class="col-lg-4 text-right">
+	<div class="col-lg-3 text-right">
 	  <input type="text" class="newTeamName"><br>
 	  <span class="text-danger err"></span><br>
           <button class="btn btn-success addTeam">+ CREATE OWN TEAM</button>
 	</div>
       </div>
-    </ul>
 
   </div>
 </template>

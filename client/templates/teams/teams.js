@@ -25,9 +25,9 @@ Template.teams.helpers({
     },
     s2Opts: function () {
         var arr=[];
-	var res=Teams.findOne({_id: Router.current().params.slug}).keywords;
-	if (res)
-            res.forEach(function (el) {
+	var res=Teams.findOne({_id: Router.current().params.slug});
+	if (res && res.keywords)
+            res.keywords.forEach(function (el) {
 		var obj={label: el, value: el};
 		arr.push(obj);
             });
