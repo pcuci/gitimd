@@ -67,9 +67,31 @@ Template.teams.helpers({
 	return Teams.findOne({_id:Router.current().params.slug, 'members.id':Meteor.userId()});
     }
 });
- 
+
 Template.teams.events({
-    'click .joinTeam': function () {
-	Teams.update({_id:Router.current().params.slug},{$addToSet: {members:{id:Meteor.userId(), status:'applied'}}});
-    }
+  'click .joinTeam': function () {
+    Teams.update({
+      _id:Router.current().params.slug
+    },
+    {
+      $addToSet: {
+        members: {
+          id: Meteor.userId(),
+          status: 'applied'
+        }
+      }
+    });
+  },
+  'click .leave-project': function() {
+    Teams.update({
+      _id:Router.current().params.slug
+    },
+    {
+      $pull: {
+        members: {
+          id: Meteor.userId()
+        }
+      }
+    });
+  }
 });

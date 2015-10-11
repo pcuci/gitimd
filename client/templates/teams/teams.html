@@ -3,8 +3,8 @@
     {{#if mayEdit}}
     <div class="row">
       <div class="col-xs-8">
-	{{#autoForm collection="Teams" doc=currentTeam id="editTeam" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
-	<fieldset>
+    {{#autoForm collection="Teams" doc=currentTeam id="editTeam" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
+    <fieldset>
           {{> afQuickField name="name"}}
           {{> afQuickField name="description" rows=2}}
           {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
@@ -12,12 +12,13 @@
             <button type="submit" class="btn btn-primary">Save</button>
             <button type="reset" class="btn btn-default">Reset</button>
           </div>
-	</fieldset>
-	{{/autoForm}}
+    </fieldset>
+    {{/autoForm}}
       </div>
       <div class="col-xs-4">
         <img src="http://lorempixel.com/100/100/city" class="img-rounded"><br>
         <button class="btn btn-success">Add avatar</button>
+        <button class="btn btn-warning leave-project">Leave Project</button>
       </div>
     </div>
     {{else}}
@@ -26,18 +27,18 @@
         <h2>{{currentTeam.name}}</h2>
           <blockquote>{{currentTeam.description}}</blockquote><br>
           <b>Keywords</b>:&nbsp;
-	  {{#each currentTeam.keywords}}
+      {{#each currentTeam.keywords}}
           <span class="label label-primary">{{this}}</span>
-	  {{else}}
+      {{else}}
           No keywords
-	  {{/each}}
+      {{/each}}
       </div>
       <div class="col-xs-4">
         <img src="http://lorempixel.com/100/100/city" class="img-rounded"><br>
         <button class="btn btn-success joinTeam">JOIN TEAM</button>
       </div>
     </div>
-    
+
     {{/if}}
 
     <ul class="list-group">
@@ -48,18 +49,18 @@
       <div class="row">
       {{#each usersMembers}}
       <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
-        
-	<div class="panel panel-default">
+
+    <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
           </div>
           <div class="panel-body text-left">
-	    <div class="col-xs-4">
-	      <img src="http://lorempixel.com/100/100/people" class="img-rounded">
-	    </div>
-	    <div class="col-xs-8">
+        <div class="col-xs-4">
+          <img src="http://lorempixel.com/100/100/people" class="img-rounded">
+        </div>
+        <div class="col-xs-8">
               {{ profile.bio }}
-	    </div>
+        </div>
           </div>
           <div class="panel-footer">
             <b>Teams</b>:&nbsp;
@@ -86,18 +87,18 @@
       <div class="row">
       {{#each usersWatchers}}
       <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
-        
-	<div class="panel panel-default">
+
+    <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
           </div>
           <div class="panel-body text-left">
-	    <div class="col-xs-4">
-	      <img src="http://lorempixel.com/100/100/people" class="img-rounded">
-	    </div>
-	    <div class="col-xs-8">
+        <div class="col-xs-4">
+          <img src="http://lorempixel.com/100/100/people" class="img-rounded">
+        </div>
+        <div class="col-xs-8">
               {{ profile.bio }}
-	    </div>
+        </div>
           </div>
           <div class="panel-footer">
             <b>Teams</b>:&nbsp;
@@ -124,18 +125,18 @@
       <div class="row">
       {{#each usersAll}}
       <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
-        
-	<div class="panel panel-default">
+
+    <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
           </div>
           <div class="panel-body text-left">
-	    <div class="col-xs-4">
-	      <img src="http://lorempixel.com/100/100/people" class="img-rounded">
-	    </div>
-	    <div class="col-xs-8">
+        <div class="col-xs-4">
+          <img src="http://lorempixel.com/100/100/people" class="img-rounded">
+        </div>
+        <div class="col-xs-8">
               {{ profile.bio }}
-	    </div>
+        </div>
           </div>
           <div class="panel-footer">
             <b>Teams</b>:&nbsp;
