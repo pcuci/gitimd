@@ -3,7 +3,9 @@
     <div class="page-header">
       <h1>Team</h1>
     </div>
-      {{#autoForm collection="Teams" doc=currentTeam id="editTeam" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
+          <div class="row">
+            <div class="col-xs-8">
+       {{#autoForm collection="Teams" doc=currentTeam id="editTeam" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
       <fieldset>
         {{> afQuickField name="name"}}
         {{> afQuickField name="description" rows=2}}
@@ -14,7 +16,13 @@
         </div>
       </fieldset>
       {{/autoForm}}
- 
+             </div>
+            <div class="col-xs-4">
+              <img src="http://lorempixel.com/100/100/city" class="img-rounded"><br>
+              <button class="btn btn-success">Add avatar</button>
+            </div>
+          </div>
+
     <ul class="list-group">
       <br>
       <br>
@@ -25,8 +33,13 @@
                 <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
               </div>
               <div class="panel-body text-left">
-                {{ profile.bio }}
-              </div>
+		<div class="col-xs-4">
+		  <img src="http://lorempixel.com/100/100/people" class="img-rounded">
+		</div>
+		<div class="col-xs-8">
+                  {{ profile.bio }}
+		</div>
+               </div>
               <div class="panel-footer">
                 <b>Teams</b>:&nbsp;
                 {{#each memberOf}}
