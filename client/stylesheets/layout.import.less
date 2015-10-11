@@ -75,9 +75,54 @@ body{
   .panel{
     height: 85%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    .img-rounded{
+      //width: 85%;
+    }
+    .panel-title{
+      color: @brand-primary;
+    }
+    .team-description{
+      padding: 1rem 5px 5px 1rem;
+      background-color:fade(@brand-primary,30%);
+      height: 8rem;
+      overflow: hidden;
+    }
+    .panel-footer{
+      hr{
+        margin: 1rem;
+        height: 3px;
+        background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(30, 90, 135, 0.7), rgba(0, 0, 0, 0));
+      }
+      font-size: 1rem;
+      text-align: left;
+      b{
+        text-transform: uppercase;
+      }
+    }
+
   }
   .team-panel{
     height: 80vh;
+    .progress{
+      font-size: 1rem;
+      height: 1.5rem;
+      margin-top: 0.5rem;
+      background-color: #CFCFCF;
+      .progress-bar{
+        line-height: 15px;
+      }
+    }
+    .train{
+      padding-left: 1rem;
+      .fa{
+        color: @brand-primary;
+        margin-left: -5px;
+      }
+      .fa-subway{
+        font-size: 2rem;
+        z-index: 10;
+      }
+    }
   }
 
 }

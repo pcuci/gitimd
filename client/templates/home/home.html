@@ -49,27 +49,58 @@
 <template name="teamCard">
     <div class="col-xs-12 text-center team-panel">
         <div class="panel panel-default">
+            <div class="row teamVisualInfo">
+                <div class="col col-xs-6">
+                   <span class="train pull-left">
+                        <i class="fa fa-subway"></i>
+                        <i class="fa fa-battery-full"></i>
+                        <i class="fa fa-battery-empty"></i>
+                        <i class="fa fa-battery-empty"></i>
+                   </span>
+                </div>
+                <div class="col col-xs-6">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                            60%
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="panel-heading">
                 <h3 class="panel-title"><a href="/teams/{{_id}}"><b>{{ name }}</b></a></h3>
             </div>
             <div class="panel-body text-left">
-                <div class="row">
-                    <div class="col-xs-4">
-                        <img src="http://lorempixel.com/100/100/city" class="img-rounded">
-                    </div>
-                    <div class="col-xs-8">
+
+                <div class="row text-center team-description">
                         {{ description }}
-                    </div>
                 </div>
+
             </div>
             <div class="panel-footer">
-                <b>Members</b>:&nbsp;<span class="badge">{{membersCount}}</span>&nbsp;<b>Watchers</b>:&nbsp;<span class="badge">{{watchersCount}}</span>
-                <br><b>Keywords</b>:&nbsp;
-                {{#each keywords}}
-                    <span class="label label-primary">{{this}}</span>
-                {{else}}
-                    No keywords
-                {{/each}}
+
+              <div class="row">
+
+                  <div class="col col-xs-6">
+                      <img src="http://lorempixel.com/100/100/city" class="img-rounded" height="60" />
+                  </div>
+                  <div class="col col-xs-6">
+
+                      <b>Members</b>:&nbsp;<span class="badge">{{membersCount}}</span>
+                      <hr/>
+                      <b>Watchers</b>:&nbsp;<span class="badge">{{watchersCount}}</span>
+
+                  </div>
+                  <hr/>
+              </div>
+               <div class="col-xs-12 text-center">
+                   <br/>
+                   <b>Keywords</b><br/>
+                   {{#each keywords}}
+                       <span class="label label-primary">{{this}}</span>
+                   {{else}}
+                       No keywords
+                   {{/each}}
+               </div>
             </div>
         </div>
     </div>
