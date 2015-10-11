@@ -2,7 +2,8 @@
   <div class="template-profile">
 
     {{#if ifOwner}}
-
+          <div class="row">
+            <div class="col-xs-8">
       {{#autoForm collection=usersCollection doc=currentUser id="editUserProfile" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
           <fieldset>
             <div class="row">
@@ -27,8 +28,17 @@
             </div>
           </fieldset>
           {{/autoForm}}
-
+            </div>
+            <div class="col-xs-4">
+              <img src="http://lorempixel.com/100/100/people" class="img-rounded"><br>
+              <button class="btn btn-success">Add avatar</button>
+            </div>
+          </div>
+ 
+ 
       {{else}}
+          <div class="row">
+            <div class="col-xs-8">
 
           <h2>{{currentUser.username}}</h2>
           <blockquote>{{currentUser.profile.bio}}</blockquote><br>
@@ -38,6 +48,11 @@
       {{else}}
           No keywords
       {{/each}}
+            </div>
+            <div class="col-xs-4">
+              <img src="http://lorempixel.com/100/100/people" class="img-rounded"><br>
+            </div>
+          </div>
       
       {{/if}}
   </div>
