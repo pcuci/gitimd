@@ -4,39 +4,39 @@
     {{#if ifOwner}}
 
       {{#autoForm collection=usersCollection doc=currentUser id="editUserProfile" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
-      <fieldset>
-	<div class="row">
-	  <div class="col-lg-6">
-            {{> afQuickField name="username"}}
-	  </div>
-	  <div class="col-lg-6">
-            {{> afQuickField name="emails.0.address" label="E-mail"}}
-	  </div>
-	</div>
-<!--
-        {{> afQuickField name="profile.firstName"}}
-        {{> afQuickField name="profile.lastName"}}
-        {{> afQuickField name="profile.gender" options="allowed"}}
--->
-        {{> afQuickField name="profile.bio" rows=2}}
-        {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
+          <fieldset>
+            <div class="row">
+              <div class="col-lg-6">
+                    {{> afQuickField name="username"}}
+              </div>
+              <div class="col-lg-6">
+                    {{> afQuickField name="emails.0.address" label="E-mail"}}
+              </div>
+            </div>
+            <!--
+            {{> afQuickField name="profile.firstName"}}
+            {{> afQuickField name="profile.lastName"}}
+            {{> afQuickField name="profile.gender" options="allowed"}}
+            -->
+            {{> afQuickField name="profile.bio" rows=2}}
+            {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
 
-        <div>
-          <button type="submit" class="btn btn-primary">Save</button>
-          <button type="reset" class="btn btn-default">Reset</button>
-        </div>
-      </fieldset>
-      {{/autoForm}}
+            <div>
+              <button type="submit" class="btn btn-primary">Save</button>
+              <button type="reset" class="btn btn-default">Reset</button>
+            </div>
+          </fieldset>
+          {{/autoForm}}
 
       {{else}}
 
-      <h2>{{currentUser.username}}</h2>
-      <blockquote>{{currentUser.profile.bio}}</blockquote><br>
-      <b>Key competencies</b>:&nbsp;
+          <h2>{{currentUser.username}}</h2>
+          <blockquote>{{currentUser.profile.bio}}</blockquote><br>
+          <b>Key competencies</b>:&nbsp;
       {{#each currentUser.keywords}}
-      <span class="label label-primary">{{this}}</span>
+          <span class="label label-primary">{{this}}</span>
       {{else}}
-      No keywords
+          No keywords
       {{/each}}
       
       {{/if}}
@@ -58,18 +58,19 @@
 		<b>Members</b>:&nbsp;<span class="badge">{{membersCount}}</span>&nbsp;<b>Watchers</b>:&nbsp;<span class="badge">{{watchersCount}}</span>
 		<br><b>Keywords</b>:&nbsp;
 		{{#each keywords}}
-		<span class="label label-primary">{{this}}</span>
+		    <span class="label label-primary">{{this}}</span>
 		{{else}}
-		No keywords
+		    No keywords
 		{{/each}}
 	      </div>
 	    </div>
 	  </div>
 	  {{else}}
-	  <h4>No teams submitted yet.</h4>
+	    <h4>No teams submitted yet.</h4>
 	  {{/each}}
+
 	</div>
-	<div class="col-lg-3 text-right">
+	<div class="col-xs-3 text-right">
 	  <input type="text" class="newTeamName"><br>
 	  <span class="text-danger err"></span><br>
           <button class="btn btn-success addTeam">+ CREATE OWN TEAM</button>
