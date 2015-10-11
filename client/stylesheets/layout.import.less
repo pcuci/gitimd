@@ -2,24 +2,49 @@ body{
   height: 100vh;
   background-color: #659CCE;
   padding-bottom: 5rem;
+  //padding-top: 5rem; // in case we want a fixed header
   .container{
     background-color: #659CCE;
   }
 
 }
 
+//header
 .page-header{
   margin-top: 0;
 }
 .navbar-default{
   background-color: transparent;
 }
-.at-form{
-  margin-top: 0;
-}
+
+
+//footer
 .navbar-fixed-bottom{
   border: none;
   a{
     font-size: 1rem;
   }
+}
+
+//modal
+.anti-modal-box {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+  background:#659CCE;
+  .anti-modal-title{
+    text-align: center;
+    font-weight: bold;
+    color: @brand-primary;
+  }
+}
+.anti-modal-overlay {
+  overflow-y: initial;
+  overflow-x: hidden;
+}
+
+//form
+.at-form{
+  margin-top: 0;
 }
