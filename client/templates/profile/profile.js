@@ -23,9 +23,9 @@ Template.profile.helpers({
     },
     s2Opts: function () {
         var arr=[];
-        var res=Meteor.user().keywords;
-        if (res)
-            res.forEach(function (el) {
+        var res=Meteor.user();
+        if (res && res.keywords)
+            res.keywords.forEach(function (el) {
 		var obj={label: el, value: el};
 		arr.push(obj);
             });
