@@ -3,62 +3,164 @@
     <div class="page-header">
       <h1>Team</h1>
     </div>
-          <div class="row">
-            <div class="col-xs-8">
-       {{#autoForm collection="Teams" doc=currentTeam id="editTeam" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
-      <fieldset>
-        {{> afQuickField name="name"}}
-        {{> afQuickField name="description" rows=2}}
-        {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
-        <div>
-          <button type="submit" class="btn btn-primary">Save</button>
-          <button type="reset" class="btn btn-default">Reset</button>
-        </div>
-      </fieldset>
-      {{/autoForm}}
-             </div>
-            <div class="col-xs-4">
-              <img src="http://lorempixel.com/100/100/city" class="img-rounded"><br>
-              <button class="btn btn-success">Add avatar</button>
-            </div>
+    {{#if mayEdit}}
+    <div class="row">
+      <div class="col-xs-8">
+	{{#autoForm collection="Teams" doc=currentTeam id="editTeam" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
+	<fieldset>
+          {{> afQuickField name="name"}}
+          {{> afQuickField name="description" rows=2}}
+          {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
+          <div>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="reset" class="btn btn-default">Reset</button>
           </div>
+	</fieldset>
+	{{/autoForm}}
+      </div>
+      <div class="col-xs-4">
+        <img src="http://lorempixel.com/100/100/city" class="img-rounded"><br>
+        <button class="btn btn-success">Add avatar</button>
+      </div>
+    </div>
+    {{else}}
+    <div class="row">
+      <div class="col-xs-8">
+        <h2>{{currentTeam.name}}</h2>
+          <blockquote>{{currentTeam.description}}</blockquote><br>
+          <b>Keywords</b>:&nbsp;
+	  {{#each currentTeam.keywords}}
+          <span class="label label-primary">{{this}}</span>
+	  {{else}}
+          No keywords
+	  {{/each}}
+      </div>
+      <div class="col-xs-4">
+        <img src="http://lorempixel.com/100/100/city" class="img-rounded"><br>
+        <button class="btn btn-success joinTeam">JOIN TEAM</button>
+      </div>
+    </div>
+    
+    {{/if}}
 
     <ul class="list-group">
       <br>
       <br>
-      {{#each users}}
-          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
-              </div>
-              <div class="panel-body text-left">
-		<div class="col-xs-4">
-		  <img src="http://lorempixel.com/100/100/people" class="img-rounded">
-		</div>
-		<div class="col-xs-8">
-                  {{ profile.bio }}
-		</div>
-               </div>
-              <div class="panel-footer">
-                <b>Teams</b>:&nbsp;
-                {{#each memberOf}}
-                <span class="label label-primary">{{name}}</span>
-                {{else}}
-                Not member of any team
-                {{/each}}
-                <br><b>Keywords</b>:&nbsp;
-                {{#each keywords}}
-                <span class="label label-primary">{{this}}</span>
-                {{else}}
-                No keywords
-                {{/each}}
-              </div>
-            </div>
+      <h2>Members</h2>
+
+      <div class="row">
+      {{#each usersMembers}}
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
+        
+	<div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
           </div>
+          <div class="panel-body text-left">
+	    <div class="col-xs-4">
+	      <img src="http://lorempixel.com/100/100/people" class="img-rounded">
+	    </div>
+	    <div class="col-xs-8">
+              {{ profile.bio }}
+	    </div>
+          </div>
+          <div class="panel-footer">
+            <b>Teams</b>:&nbsp;
+            {{#each memberOf}}
+            <span class="label label-primary">{{name}}</span>
+            {{else}}
+            Not member of any team
+            {{/each}}
+            <br><b>Keywords</b>:&nbsp;
+            {{#each keywords}}
+            <span class="label label-primary">{{this}}</span>
+            {{else}}
+            No keywords
+            {{/each}}
+          </div>
+        </div>
+
+      </div>
       {{else}}
-      <h4>No participants yet.</h4>
+      <h4>No members yet.</h4>
       {{/each}}
+      </div>
+      <h2>Watchers</h2>
+      <div class="row">
+      {{#each usersWatchers}}
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
+        
+	<div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
+          </div>
+          <div class="panel-body text-left">
+	    <div class="col-xs-4">
+	      <img src="http://lorempixel.com/100/100/people" class="img-rounded">
+	    </div>
+	    <div class="col-xs-8">
+              {{ profile.bio }}
+	    </div>
+          </div>
+          <div class="panel-footer">
+            <b>Teams</b>:&nbsp;
+            {{#each memberOf}}
+            <span class="label label-primary">{{name}}</span>
+            {{else}}
+            Not member of any team
+            {{/each}}
+            <br><b>Keywords</b>:&nbsp;
+            {{#each keywords}}
+            <span class="label label-primary">{{this}}</span>
+            {{else}}
+            No keywords
+            {{/each}}
+          </div>
+        </div>
+
+      </div>
+      {{else}}
+      <h4>No watchers yet.</h4>
+      {{/each}}
+      </div>
+      <h2>All other users</h2>
+      <div class="row">
+      {{#each usersAll}}
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center">
+        
+	<div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><a href="/profile/{{username}}"><b>{{ username }}</b></a></h3>
+          </div>
+          <div class="panel-body text-left">
+	    <div class="col-xs-4">
+	      <img src="http://lorempixel.com/100/100/people" class="img-rounded">
+	    </div>
+	    <div class="col-xs-8">
+              {{ profile.bio }}
+	    </div>
+          </div>
+          <div class="panel-footer">
+            <b>Teams</b>:&nbsp;
+            {{#each memberOf}}
+            <span class="label label-primary">{{name}}</span>
+            {{else}}
+            Not member of any team
+            {{/each}}
+            <br><b>Keywords</b>:&nbsp;
+            {{#each keywords}}
+            <span class="label label-primary">{{this}}</span>
+            {{else}}
+            No keywords
+            {{/each}}
+          </div>
+        </div>
+
+      </div>
+      {{else}}
+      <h4>No people here at all.</h4>
+      {{/each}}
+      </div>
     </ul>
 
   </div>
