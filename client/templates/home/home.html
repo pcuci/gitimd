@@ -1,22 +1,30 @@
 <template name="home">
-  <div class="template-home">
-    <div class="page-header text-center">
-        <img src="/gitimd.png" alt="gitimdlogo" height="100"/>
+{{#unless currentUser}}
+    {{>landingPage}}
+  {{else}}
+    {{>locateEvent}}
+{{/unless}}
+</template>
+
+<template name="landingPage">
+    <div class="template-home">
+        <div class="col col-xs-12" id="landingIntro">
+            <div class="well text-center">
+                Try Giti.md to find team mate, its fun and easy to use <br/>
+                <em><img src="/mascot.png" alt="mascot" height="35"/> Tchou Tchou </em>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col col-xs-6">
+                <a href="{{ pathFor 'atSignIn' }}" class="btn btn-block btn-default navbar-btn">Sign in</a>
+            </div>
+            <div class="col col-xs-6">
+                <a href="{{ pathFor 'atSignUp' }}" class="btn btn-block btn-primary navbar-btn">Register</a>
+            </div>
+        </div>
     </div>
-
-      <div class="col col-xs-12" id="landingIntro">
-         <div class="well">
-             Try Giti.md to find team mate, its fun and easy to use <em>Tchou Tchou</em>
-         </div>
-      </div>
-
-      <div class="row text-center">
-         <div class="col col-xs-6">
-             <a href="{{ pathFor 'atSignIn' }}" class="btn btn-block btn-default navbar-btn">Sign in</a>
-         </div>
-          <div class="col col-xs-6">
-              <a href="{{ pathFor 'atSignUp' }}" class="btn btn-block btn-primary navbar-btn">Register</a>
-          </div>
-      </div>
-  </div>
+</template>
+<template name="locateEvent">
+    <p>choose your event</p>
 </template>
