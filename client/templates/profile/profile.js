@@ -19,11 +19,21 @@ AutoForm.addHooks(['editUserProfile'],{
 Template.profile.helpers({
     usersCollection: Meteor.users,
     currentUser: function () {
-	return Meteor.users.findOne({username:Router.current().params.username});
+	if (Router.current().params.username) {
+	    return Meteor.users.findOne({username:Router.current().params.username});
+	} else {
+	    return Meteor.users.findOne({username:Meteor.user().username});
+	};
     },
     s2Opts: function () {
         var arr=[];
-        var res=Meteor.users.findOne({username:Router.current().params.username});
+
+	if (Router.current().params.username) {
+            var res=Meteor.users.findOne({username:Router.current().params.username});
+	} else {
+	    var res=Meteor.users.findOne({username:Meteor.user().username});
+	};
+
         if (res && res.keywords)
             res.keywords.forEach(function (el) {
 		var obj={label: el, value: el};
@@ -38,7 +48,9 @@ Template.profile.helpers({
 	return _.filter(Teams.findOne().members, function (el) {if (el.status==='applied') return true;}).length;
     },
     ifOwner: function () {
-	return Meteor.user().username === Router.current().params.username;
+	if (Router.current().params.username)
+	    return Meteor.user().username === Router.current().params.username;
+	return true;
     }
 });
  
