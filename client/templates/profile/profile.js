@@ -4,7 +4,9 @@ Template.profile.rendered = function() {
         tokenSeparators: [",", " "],
     });
 };
-
+Template.profile.onDestroyed(function(){
+    Router.go('home');
+});
 AutoForm.addHooks(['editUserProfile'],{
     onSuccess: function () {
         Meteor.setTimeout(function (){

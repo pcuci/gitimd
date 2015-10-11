@@ -10,18 +10,29 @@ body{
 }
 
 //header
+.navbar{
+  min-height: 3.5rem;
+}
 .page-header{
   margin-top: 0;
 }
 .navbar-default{
   background-color: transparent;
+  .mini-logo{
+    margin: 0;
+    margin-left: -1rem;
+  }
+  #logoutBtn{
+    padding-top: 0.5rem;
+    color: @brand-primary;
+  }
 }
 
 
 //footer
 .navbar-fixed-bottom{
   border: none;
-  a{
+  button{
     font-size: 1rem;
   }
 }
