@@ -1,10 +1,30 @@
 <template name="home">
-  <div class="template-home">
-    <div class="page-header">
-      <h1>Welcome to Project Title</h1>
+{{#unless currentUser}}
+    {{>landingPage}}
+  {{else}}
+    {{>locateEvent}}
+{{/unless}}
+</template>
+
+<template name="landingPage">
+    <div class="template-home">
+        <div class="col col-xs-12" id="landingIntro">
+            <div class="well text-center">
+                Try Giti.md to find team mate, its fun and easy to use <br/>
+                <em><img src="/mascot.png" alt="mascot" height="35"/> Tchou Tchou </em>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col col-xs-6">
+                <a href="{{ pathFor 'atSignIn' }}" class="btn btn-block btn-default navbar-btn">Sign in</a>
+            </div>
+            <div class="col col-xs-6">
+                <a href="{{ pathFor 'atSignUp' }}" class="btn btn-block btn-primary navbar-btn">Register</a>
+            </div>
+        </div>
     </div>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </div>
+</template>
+<template name="locateEvent">
+    <p>choose your event</p>
 </template>
