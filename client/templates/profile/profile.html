@@ -3,6 +3,7 @@
     <div class="page-header">
       <h1>Profile</h1>
     </div>
+    {{#if ifOwner}}
       {{#autoForm collection=usersCollection doc=currentUser id="editUserProfile" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
       <fieldset>
 	<div class="row">
@@ -27,6 +28,18 @@
         </div>
       </fieldset>
       {{/autoForm}}
+      {{else}}
+
+      <h2>{{currentUser.username}}</h2>
+      <blockquote>{{currentUser.profile.bio}}</blockquote><br>
+      <b>Key competencies</b>:&nbsp;
+      {{#each currentUser.keywords}}
+      <span class="label label-primary">{{this}}</span>
+      {{else}}
+      No keywords
+      {{/each}}
+      
+      {{/if}}
  
       <br>
       <br>
