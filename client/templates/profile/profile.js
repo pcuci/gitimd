@@ -30,7 +30,13 @@ Template.profile.helpers({
 		arr.push(obj);
             });
 	return arr;
-    }    
+    },
+    membersCount: function () {
+	return _.filter(Teams.findOne().members, function (el) {if (el.status!='applied') return true;}).length;
+    },
+    watchersCount: function () {
+	return _.filter(Teams.findOne().members, function (el) {if (el.status==='applied') return true;}).length;
+    },
 });
  
 Template.profile.events({
@@ -38,7 +44,7 @@ Template.profile.events({
 	//create team
 	var name=$('.newTeamName').val();
 	if (name && (name.length>0)) {
-	    Teams.insert({name:name, members:[{id:Meteor.userId(),status:'creator'}]}, function (e,r){
+	    Teams.insert({name:name, members:[{id:Meteor.userId(),status:'creator'}],description:'what this team is going to achieve?'}, function (e,r){
 		if (!e)
 		    //route to team edit
 		    Router.go('/teams/'+r);

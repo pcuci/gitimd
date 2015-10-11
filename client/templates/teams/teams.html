@@ -6,7 +6,7 @@
       {{#autoForm collection="Teams" doc=currentTeam id="editTeam" type="update"}} <!-- autosave=true autosaveOnKeyup=true trimStrings=false}} -->
       <fieldset>
         {{> afQuickField name="name"}}
-        {{> afQuickField name="descripton" rows=2}}
+        {{> afQuickField name="description" rows=2}}
         {{> afQuickField name="keywords" multiple="multiple" options=s2Opts label="Key competencies tags"}}
         <div>
           <button type="submit" class="btn btn-primary">Save</button>
