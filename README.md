@@ -1,13 +1,10 @@
 # gitimd - Get Teamed Up. 
 Team-making engine.
-Teams can do work without competing in contests.
-Teams can join competitions too. 
+Teams can join competitions or work without competing in contests
 
-steps:
-
-1. Create a teaming-up idea as a topic, a subject-matter interest: it could be a raw or vague sense of an idea.
+1. Create a teaming-up idea as a topic, a subject-matter interest: it could be a vague sense of an idea.
 2. People interact with the idea while they become part of a proto-team.
-3. We coalesce into a functioning team, where we agree on our focus and then we work with focus. Some people remain in the background, so they become the entourage and NOT the performing team.
+3. We coalesce into a functioning team, where we agree on our work focus and then we begin working with focus. Some people remain in the background, so they become the entourage (an outer layer) and NOT the performing team.
 4. Add a deadline (for a competition or a mutually agreed race against the clock.)
 5. We may progress through these team state stages swiftly or slowly organically.
 6. When people have a non-core role or aren't in the team: they go into the ecosystem surrounding the team. "It takes a village to raise a project."
